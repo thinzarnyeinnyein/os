@@ -5,7 +5,7 @@ Items Manage
 -create controller (--resource)
 -show route list (route:list)
 -create blades (4 for get methods)
--call specified view from method
+-call specified view from method that sai tae view tway ko call mal
 -use store method (form action)
 	-dd()
 	-validation
@@ -17,3 +17,49 @@ Items Manage
 
 Brands Manage
 -------------
+
+-create resource route
+-create controller (--resource)
+-show route list (route:list)
+-create blades (4 for get methods)
+-call specified view from method that sai tae view tway ko call mal
+-use store method (form action)
+	-dd()
+	-validation
+	-if include image,upload
+	-data insert
+	-redirect->(index)
+-show in database
+
+
+Category Manage
+---------------
+-create resource route
+-create controller (--resource)
+-show route list (route:list)
+-create blades (4 for get methods)
+-call specified view from method that sai tae view tway ko call mal
+-use store method (form action)
+	-dd()
+	-validation
+	-if include image,upload
+	-data insert
+	-redirect->(index)
+-show in database
+
+SubCategory Manage
+---------------
+-create resource route
+-create controller (--resource)
+-show route list (route:list)
+-create blades (4 for get methods)
+-call specified view from method that sai tae view tway ko call mal
+-use store method (form action)
+	-dd()
+	-validation
+	-if include image,upload
+	-data insert
+	-redirect->(index)
+-show in database
+
+

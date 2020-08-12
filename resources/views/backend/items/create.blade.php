@@ -39,7 +39,7 @@
 		</div>
 		<div class="form-group">
 			<label>Photo</label>
-			<input type="file" name="photo" class="form-control">
+			<input type="file" name="photo" class="form-control-file">
 			
 		</div>
 		<div class="form-group">
