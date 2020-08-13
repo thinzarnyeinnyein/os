@@ -47,7 +47,7 @@ class BrandController extends Controller
         //File Uplaod
         $imageName =time().'.'.$request->photo->extension();
         $request->photo->move(public_path('backend/brandimg'),$imageName);
-        $myfile = 'backend/brandimg'.$imageName;
+        $myfile = 'backend/brandimg/'.$imageName;
 
         //Data insert
         $brand = new Brand;

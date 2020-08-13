@@ -15,26 +15,105 @@
 			</tr>
 		</thead>
 		<tbody>
+			@php $i=1; @endphp
+			@foreach($items as $item)
 			<tr>
-				<td>1</td>
-				<td>0001
-					<a href="{{route('items.show',1)}}">
+				<td>{{$i++}}</td>
+				<td>{{$item->codeno}}
+					<a href="{{route('items.show',$item->id)}}">
 						<span class="badge-primary badge-pill">Detail</span>
+						
+					</a>
+					<a href="#" class="box" data-name="{{$item->name}}" data-photo="{{asset($item->photo)}}" data-price="{{$item->price}}" data-desc="{{$item->description}}">
+						<span class="badge-primary badge-pill">Modal</span>
 						
 					</a>
 					
 				</td>
-				<td>Item One</td>
-				<td>5500 MMK</td>
+				<td>{{$item->name}}</td>
+				<td>{{$item->price}}</td>
 				<td>
-					<a href="{{route('items.edit',1)}}" class="btn btn-secondary">Edit</a>
-					<a href="#" class="btn btn-secondary">Delete</a>
+					<a href="{{route('items.edit',$item->id)}}" class="btn btn-secondary">Edit</a>
+
+					<form method="post" action="{{route('items.destroy',$item->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
+						@csrf
+						@method('DELETE')
+						<input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">
+						
+					</form>
+					
 
 				</td>
 			</tr>
+			@endforeach
 		</tbody>
 		
 	</table>
 	
 </div>
+
+{{-- Detail Modal --}}
+<div class="modal fade" id="mymodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+        	<div class="col-md-6">
+        		<img src="" id="photo" class="img-fluid d-block mx-auto w-25">
+        		
+        	</div>
+        	<div class="col-md-6">
+
+        		Price:<strong id="price"></strong><br>
+        		Description:<strong id="desc"></strong>
+
+
+        		
+        	</div>
+        	
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
+
+@section('script')
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.box').click(function(){
+				// alert('Box');
+				var name = $(this).data('name');
+				var photo= $(this).data('photo');
+				var price= $(this).data('price');
+				var desc=$(this).data('desc');
+
+				$('.modal-title').text(name);
+				$('#photo').attr('src',photo);
+				$('#price').text(price);
+				$('#desc').text(desc);
+				$('#mymodal').modal('show');
+
+
+
+
+
+			})
+		})
+		
+
+
+
+	</script>
 @endsection
