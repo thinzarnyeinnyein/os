@@ -18,16 +18,48 @@ use Illuminate\Support\Facades\Route;
 //     // return 'Hello Laravel';
 // });
 
-Route::get('/','BackendController@dashboard')->name('dashboard');
+//Frontend Route
+Route::get('/','FrontendController@home')->name('homepage');
 
-Route::resource('items','ItemController');
+Route::get('filter_item','FrontendController@filter_item')->name('filter_item');
+
+Route::get('itemdetail/{id}','FrontendController@itemdetail')->name('itemdetail');
+
+//Route::get('register','FrontendController@register')->name('registerpage');
+
+//Route::get('itemlogin','FrontendController@login')->name('loginpage');
+
+Route::get('profile','FrontendController@profile')->name('profile');
+
+Route::get('checkout','FrontendController@checkout')->name('checkout');
+
+
+
+
+
+//Backend Route
+Route::middleware('auth')->group(function(){
+
+	Route::resource('orders','OrderController');
+	
+	Route::get('dashboard','BackendController@dashboard')->name('dashboard');
+
+	Route::resource('items','ItemController');
 //7 (get-4/ post-1/put-1/delete-1)
 
-Route::resource('brands','BrandController');
+	Route::resource('brands','BrandController');
 
-Route::resource('categories','CategoryController');
+	Route::resource('categories','CategoryController');
 
-Route::resource('subcategories','SubcategoryController');
+	Route::resource('subcategories','SubcategoryController');
+
+
+});
+
+
+
+
+
      
     
 
@@ -36,3 +68,7 @@ Route::resource('subcategories','SubcategoryController');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

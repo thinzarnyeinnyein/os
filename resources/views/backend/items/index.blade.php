@@ -89,31 +89,4 @@
 </div>
 @endsection
 
-@section('script')
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$('.box').click(function(){
-				// alert('Box');
-				var name = $(this).data('name');
-				var photo= $(this).data('photo');
-				var price= $(this).data('price');
-				var desc=$(this).data('desc');
 
-				$('.modal-title').text(name);
-				$('#photo').attr('src',photo);
-				$('#price').text(price);
-				$('#desc').text(desc);
-				$('#mymodal').modal('show');
-
-
-
-
-
-			})
-		})
-		
-
-
-
-	</script>
-@endsection

@@ -3,7 +3,7 @@
 <div class="container-fluid">
 	<h2>Item Create (Form)</h2>
 
-	@if($errors->any())
+	{{-- @if($errors->any())
 	<div class="alert alert-danger">
 		<ul>
 			@foreach($errors->all() as $error)
@@ -12,39 +12,46 @@
 		</ul>
 		
 	</div>
-	@endif
+	@endif --}}
 
 	<div class="container">
 		<form action="{{route('items.store')}}" method="post" enctype="multipart/form-data">
 			@csrf
 		<div class="form-group">
 			<label>Code No</label>
-			<input type="text" name="codeno" placeholder="Code No" class="form-control">
+			<input type="text" name="codeno" placeholder="Code No" class="form-control {{ $errors->has('codeno')? 'border border-danger':''}}">
+			<span style="color: red;">{{$errors->first('codeno')}}</span>
 			
 		</div>
 		<div class="form-group">
 			<label>Name</label>
-			<input type="text" name="name" placeholder="Name" class="form-control">
+			<input type="text" name="name" placeholder="Name" class="form-control {{ $errors->has('name')? 'border border-danger':''}}">
+			<span style="color: red;">{{$errors->first('name')}}</span>
 			
 		</div>
 		<div class="form-group">
 			<label>Price</label>
-			<input type="number" name="price" placeholder="Price" class="form-control">
+			<input type="number" name="price" placeholder="Price" class="form-control {{ $errors->has('price')? 'border border-danger':''}}">
+			<span style="color: red;">{{$errors->first('price')}}</span>
 			
 		</div>
 		<div class="form-group">
 			<label>Discount</label>
-			<input type="number" name="discount" placeholder="Discount" class="form-control">
+			<input type="number" name="discount" placeholder="Discount" class="form-control {{ $errors->has('discount')? 'border border-danger':''}}">
+			<span style="color: red;">{{$errors->first('discount')}}</span>
+
 			
 		</div>
 		<div class="form-group">
 			<label>Photo</label>
-			<input type="file" name="photo" class="form-control-file">
+			<input type="file" name="photo" class="form-control-file {{ $errors->has('photo')? 'border border-danger':''}}">
+			<span style="color: red;">{{$errors->first('photo')}}</span>
 			
 		</div>
 		<div class="form-group">
 			<label>Description</label>
-			<textarea class="form-control" name="description"></textarea>
+			<textarea class="form-control {{ $errors->has('description')? 'border border-danger':''}}" name="description"></textarea>
+			<span style="color: red;">{{$errors->first('description')}}</span>
 			
 		</div>
 		<div class="form-group">
@@ -57,9 +64,8 @@
 					
 				</optgroup>
 				
-
-				
 			</select>
+			
 			
 		</div>
 		<div class="form-group">
@@ -73,6 +79,7 @@
 				</optgroup>
 				
 			</select>
+			
 			
 		</div>
 		<button type="submit" class="btn btn-outline-primary">Submit</button>

@@ -14,16 +14,25 @@
 			</tr>
 		</thead>
 		<tbody>
+			@php $i=1; @endphp
+			@foreach($brands as $brand)
 			<tr>
-				<td>1</td>
-				<td>Item One</td>
-				<td>Image</td>
+				<td>{{$i++}}</td>
+				<td>{{$brand->name}}</td>
+				<td><img src="{{$brand->photo}}" class="img-fluid w-25"></td>
 				<td>
-					<a href="{{route('items.edit',1)}}" class="btn btn-secondary">Edit</a>
-					<a href="#" class="btn btn-secondary">Delete</a>
+					<a href="{{route('brands.edit',$brand->id)}}" class="btn btn-secondary">Edit</a>
+
+					<form method="post" action="{{route('brands.destroy',$brand->id)}}" onsubmit="return confirm('Are you sure?')" class="d-inline-block">
+						@csrf
+						@method('DELETE')
+						<input type="submit" name="btnsubmit" value="Delete" class="btn btn-danger">
+						
+					</form>
 
 				</td>
 			</tr>
+			@endforeach
 		</tbody>
 		
 	</table>

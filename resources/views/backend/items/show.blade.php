@@ -12,7 +12,7 @@
 			<div class="col-md-6">
 				<table>
 					<tr>
-						<td>Product Name</td>
+						<td>Product Name:</td>
 						<td>{{$item->name}}</td>
 						
 					</tr>
@@ -22,14 +22,23 @@
 						
 					</tr>
 					<tr>
-						<td>Product Price</td>
+						<td>Product Price:</td>
 						<td>{{$item->price}}</td>
 						
 					</tr>
 					<tr>
-						<td>Description</td>
+						<td>Description:</td>
 						<td>{{$item->description}}</td>
 						
+					</tr>
+					<tr>
+						<td>Brand:</td>
+						<td>{{$item->brand->name}}</td>
+
+					</tr>
+					<tr>
+						<td>Subcategory:</td>
+						<td>{{$item->subcategory->name}}</td>
 					</tr>
 
 

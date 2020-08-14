@@ -57,9 +57,49 @@ SubCategory Manage
 -use store method (form action)
 	-dd()
 	-validation
-	-if include image,upload
+	
 	-data insert
 	-redirect->(index)
 -show in database
+
+13.8.2020
+-----------
+-list,edit,delete (only brand)
+-validation error, delete image if upload new image
+
+UI
+--
+-Filter item page(data binding)
+-Item detail page
+-Checkout page
+-Profile page (link/retrive)
+-Register page
+-Login page
+
+
+14.08.2020
+----------
+
+Frontend
+-filter item page(data binding)
+-profile page(link/retrive)
+-auth (multi role)
+
+Backend
+-order retrive
+-(backend/orders)
+-create view(index.blade.php)
+-show table (order list)
+-OrderConroller / index
+
+-RUD (category,subcategory)
+
+
+
+
+
+
+
+
 
 

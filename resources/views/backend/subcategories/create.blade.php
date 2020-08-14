@@ -3,7 +3,7 @@
 <div class="container-fluid">
 	<h2>Subcategory Create (Form)</h2>
 
-	@if($errors->any())
+	{{-- @if($errors->any())
 	<div class="alert alert-danger">
 		<ul>
 			@foreach($errors->all() as $error)
@@ -12,40 +12,41 @@
 		</ul>
 		
 	</div>
-	@endif
+	@endif --}}
 
 	<div class="container">
 		<form action="{{route('subcategories.store')}}" method="post" enctype="multipart/form-data">
 			@csrf
-		
-		<div class="form-group">
-			<label>Name</label>
-			<input type="text" name="name" placeholder="Name" class="form-control">
 			
-		</div>
-		
-		<div class="form-group">
-			<label>Category</label>
-			<select class="form-control" name="category">
-				<optgroup label="Choose Category">
-					@foreach($categories as $category)
-					<option value="{{$category->id}}">{{$category->name}}</option>
-					@endforeach
+			<div class="form-group">
+				<label>Name</label>
+				<input type="text" name="name" placeholder="Name" class="form-control {{ $errors->has('name')? 'border border-danger':''}}">
+				<span style="color: red;">{{$errors->first('name')}}</span>
+				
+			</div>
+			
+			<div class="form-group">
+				<label>Category</label>
+				<select class="form-control" name="category">
+					<optgroup label="Choose Category">
+						@foreach($categories as $category)
+						<option value="{{$category->id}}">{{$category->name}}</option>
+						@endforeach
+						
+					</optgroup>
 					
-				</optgroup>
-				
 
+					
+				</select>
 				
-			</select>
+			</div>
 			
-		</div>
-		
-		
-		<button type="submit" class="btn btn-outline-primary">Submit</button>
+			
+			<button type="submit" class="btn btn-outline-primary">Submit</button>
 
-		
-		
-	</form>
+			
+			
+		</form>
 		
 	</div>
 	

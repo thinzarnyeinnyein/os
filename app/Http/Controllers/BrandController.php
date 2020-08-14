@@ -14,7 +14,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('backend.brands.index');
+        $brands = Brand::all();
+        return view('backend.brands.index',compact('brands'));
     }
 
     /**
@@ -82,7 +83,8 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-        //
+       $brand = Brand::find($id);
+        return view('backend.brands.edit',compact('brand'));
     }
 
     /**
@@ -94,8 +96,42 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request);
+
+         //Validation
+        $request->validate([
+            
+            'name'=>'required',
+            'photo'=>'required',
+        ]);
+
+        //if include file, upload
+        if($request->hasFile('photo')){
+
+            $imageName =time().'.'.$request->photo->extension();
+            $request->photo->move(public_path('backend/brandimg'),$imageName);
+            $myfile = 'backend/brandimg/'.$imageName;
+            //delete old photo(unlink)
+            //$myfile = $request->oldphoto;
+            //Storage::delete($oldphoto);
+
+
+        }else{
+            $myfile = $request->oldphoto;
+
+
+        }
+        $brand = Brand::find($id);;
+        
+        $brand->name = $request->name;
+        $brand->photo = $myfile;
+        $brand->save();
+        //Redirect
+        return redirect()->route('brands.index');
+
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -105,6 +141,9 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand = Brand::find($id);
+        $brand->delete();
+
+        return redirect()->route('brands.index');
     }
 }
