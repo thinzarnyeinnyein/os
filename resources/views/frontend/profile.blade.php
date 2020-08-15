@@ -6,11 +6,11 @@
 		<div class="container my-5">
 			<form action="" method=""post>
 				<div class="form-group">
-					<img src="" class="img-fluid w-25">
+					<img src="backend/itemimg/1597292436.jpeg" class="img-fluid w-25">
 					
 				</div>
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Name" name="user_name" value="Mg Mg">
+					<input type="text" class="form-control" placeholder="Name" name="user_name" value="Su Su">
 					
 				</div>
 				<div class="form-group">

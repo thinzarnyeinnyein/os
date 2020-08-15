@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Subcategory;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,8 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('backend.categories.index',compact('categories'));
+        $subcategory= Subcategory::all();
+        return view('backend.categories.index',compact('categories','subcategory'));
     }
 
     /**
@@ -108,6 +110,7 @@ class CategoryController extends Controller
             $imageName =time().'.'.$request->photo->extension();
             $request->photo->move(public_path('backend/categoryimg'),$imageName);
             $myfile = 'backend/categoryimg/'.$imageName;
+            unlink($request->oldphoto);
             
 
 
@@ -136,6 +139,7 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
+        unlink($category->photo);
         return redirect()->route('categories.index');
     }
 }

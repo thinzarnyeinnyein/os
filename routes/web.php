@@ -25,9 +25,9 @@ Route::get('filter_item','FrontendController@filter_item')->name('filter_item');
 
 Route::get('itemdetail/{id}','FrontendController@itemdetail')->name('itemdetail');
 
-//Route::get('register','FrontendController@register')->name('registerpage');
+Route::get('register','FrontendController@register')->name('registerpage');
 
-//Route::get('itemlogin','FrontendController@login')->name('loginpage');
+Route::get('itemlogin','FrontendController@login')->name('loginpage');
 
 Route::get('profile','FrontendController@profile')->name('profile');
 

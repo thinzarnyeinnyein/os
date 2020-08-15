@@ -14,7 +14,7 @@
 	</div>
 	@endif --}}
 
-	<div class="container">
+	<div class="container my-5">
 		<form action="{{route('subcategories.store')}}" method="post" enctype="multipart/form-data">
 			@csrf
 			

@@ -8,27 +8,27 @@ $(document).ready(function(){
 		}
 	});
 	// alert ("Hello");
-	$('.row').on('click','.view_detail',function(){
+	$('.row').on('click','.item_detail',function(){
 
 		var id = $(this).data('id');
 		var name = $(this).data('name');
 		var photo = $(this).data('photo');
 		var price = $(this).data('price');
-		var discount = $(this).data('discount');
-		var brand = $(this).data('brand');
-		var subcategory= $(this).data('subcategory');
-		var description= $(this).data('description');
+		// var discount = $(this).data('discount');
+		// var brand = $(this).data('brand');
+		// var subcategory= $(this).data('subcategory');
+		var description= $(this).data('desc');
 
 		// alert(id+name+photo+price+discount+brand+subcategory+description)
 		$(".pimg").attr('src',"backend/"+photo);
 		$(".pname").text("Name:" +name);
-		$(".pbrand").text("Brand:" +brand);
-		$(".psubcategory").text("Subcategory:" +subcategory);
+		// $(".pbrand").text("Brand:" +brand);
+		// $(".psubcategory").text("Subcategory:" +subcategory);
 		$(".pprice").text("Price:" +price);
-		$(".pdiscount").text("Discount:" +discount);
-		$(".pdescription").text("Description:" +description);
+		// $(".pdiscount").text("Discount:" +discount);
+		$(".pdescription").text("Description:" +desc);
 		
-		$(".cart").attr({'data-id':id,'data-name':name,'data-photo':photo,'data-price':price,'data-discount':discount});
+		$(".cart").attr({'data-id':id,'data-name':name,'data-photo':photo,'data-price':price});
 
 
 	})

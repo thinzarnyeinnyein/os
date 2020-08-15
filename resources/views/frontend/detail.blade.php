@@ -11,32 +11,33 @@
 					
 				</div>
 				<div class="col-md-6">
-					<table class="table">
-						<div class="col-md-6">
-							<tr>
-								<td>Product Name:</td>
-								<td>{{$items->name}}</td>
-
-							</tr>
-							<tr>
-								<td>Price:</td>
-								<td>{{$items->price}}</td>
-								
-							</tr>
-							<tr>
-								<td>Description:</td>
-								<td>{{$items->description}}</td>
-								
-							</tr>
-							<tr>
-								<td>Qty:<input type="number" name="qty" id="qty" class="form-control w-25 d-inline-block"></td>
-								
-							</tr>
+					<form>
+						<div class="form-group row">
+							<label class="col-md-4">Product Name</label>
+							<div class="col-md-6">
+								<strong>{{$items->name}}</strong>
+							</div>
+						</div>
+						
+						<div class="form-group row">
+							<label class="col-md-4">Price:</label>
+							<div class="col-md-6">
+								<strong>{{$items->name}}</strong>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-4">Description:</label>
+							<div class="col-md-6">
+								<strong>{{$items->description}}</strong>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-4">Qty</label>
+							<input type="number" name="qty" id="qty" class="form-control w-25 d-inline-block">
 							
 						</div>
-
-						
-					</table>
+					</form>
+					
 					<a href="#" class="btn btn-info btn-sm">Add to Cart</a>
 
 					

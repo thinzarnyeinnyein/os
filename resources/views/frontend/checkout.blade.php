@@ -33,20 +33,21 @@
 
 			</div>
 			<div class="row">
+				<div class="col-md-6">
+					<a href="{{route('homepage')}}" class="btn btn-danger">Continue Shopping</a>
+					
+				</div>
+				<div class="col-md-6 float-left">
+					@auth
 				
-				<a href="{{route('homepage')}}" class="btn btn-danger">Continue Shopping</a>
+					<a href="#" class="btn btn-danger btn-sm buy_now">Checkout</a>
 
+					@else
+					<a href="{{route('login')}}" class="btn btn-info float-left">Login To Checkout</a>
+					@endauth
+					
+				</div>
 				
-				@auth
-				
-				<a href="#" class="btn btn-danger btn-sm buy_now">Checkout</a>
-
-				@else
-
-
-				
-				<a href="{{route('login')}}" class="btn btn-info float-left">Login To Checkout</a>
-				@endauth
 
 			</div>
 			

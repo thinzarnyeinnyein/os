@@ -111,9 +111,7 @@ class BrandController extends Controller
             $imageName =time().'.'.$request->photo->extension();
             $request->photo->move(public_path('backend/brandimg'),$imageName);
             $myfile = 'backend/brandimg/'.$imageName;
-            //delete old photo(unlink)
-            //$myfile = $request->oldphoto;
-            //Storage::delete($oldphoto);
+             unlink($request->oldphoto);
 
 
         }else{
@@ -143,7 +141,7 @@ class BrandController extends Controller
     {
         $brand = Brand::find($id);
         $brand->delete();
-
+        unlink($brand->photo);
         return redirect()->route('brands.index');
     }
 }

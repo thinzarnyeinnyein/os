@@ -48,9 +48,9 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('checkout')}}">Cart<span id="item_count"></span></a>
           </li>
-          <li class="nav-item">
+           {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('profile')}}">Profile</a>
-          </li>
+          </li> --}}
 
                         <!-- Authentication Links -->
                         @guest
@@ -69,11 +69,19 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('profile') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('profile-form').submit();">
+                                        {{ __('Profile') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                    <form id="profile-form" action="{{ route('profile') }}" method="GET" style="display: none;">
+                                        @csrf
+                                    </form>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

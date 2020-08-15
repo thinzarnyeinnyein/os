@@ -19,7 +19,7 @@
 			<tr>
 				<td>{{$i++}}</td>
 				<td>{{$brand->name}}</td>
-				<td><img src="{{$brand->photo}}" class="img-fluid w-25"></td>
+				<td><img src="{{$brand->photo}}" class="img-fluid" width="100"></td>
 				<td>
 					<a href="{{route('brands.edit',$brand->id)}}" class="btn btn-secondary">Edit</a>
 
