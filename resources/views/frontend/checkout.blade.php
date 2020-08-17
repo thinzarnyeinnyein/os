@@ -38,13 +38,15 @@
 					
 				</div>
 				<div class="col-md-6 float-left">
-					@auth
+					@role('customer')
 				
 					<a href="#" class="btn btn-danger btn-sm buy_now">Checkout</a>
 
+
 					@else
 					<a href="{{route('login')}}" class="btn btn-info float-left">Login To Checkout</a>
-					@endauth
+					@endrole
+					
 					
 				</div>
 				

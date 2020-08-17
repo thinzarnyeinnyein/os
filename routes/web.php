@@ -33,12 +33,19 @@ Route::get('profile','FrontendController@profile')->name('profile');
 
 Route::get('checkout','FrontendController@checkout')->name('checkout');
 
+Route::get('about','FrontendController@about')->name('about');
+
+Route::get('contact','FrontendController@contact')->name('contact');
+
+
+
+
 
 
 
 
 //Backend Route
-Route::middleware('auth')->group(function(){
+Route::middleware('role:admin')->group(function(){
 
 	Route::resource('orders','OrderController');
 	
@@ -55,6 +62,10 @@ Route::middleware('auth')->group(function(){
 
 
 });
+
+
+
+Route::post('/getitems','FrontendController@getItem')->name('getitems');
 
 
 
