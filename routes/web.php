@@ -47,7 +47,7 @@ Route::get('contact','FrontendController@contact')->name('contact');
 //Backend Route
 Route::middleware('role:admin')->group(function(){
 
-	Route::resource('orders','OrderController');
+	
 	
 	Route::get('dashboard','BackendController@dashboard')->name('dashboard');
 
@@ -73,7 +73,7 @@ Route::post('/getitems','FrontendController@getItem')->name('getitems');
 
      
     
-
+Route::resource('orders','OrderController');
 
 
 

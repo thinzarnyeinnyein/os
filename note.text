@@ -117,7 +117,13 @@ Backend
 -cp .env.example .env
 -composer install
 -php artisan key:generate
--
+
+
+In Cpanel
+---------
+
+
+
 
 
 
