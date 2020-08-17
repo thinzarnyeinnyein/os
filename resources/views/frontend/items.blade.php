@@ -6,7 +6,7 @@
 
 @section('content')
 	<div class="col-lg-9">
-		<h2 class="text-center my-3">Item Page Filter by brand and subcategory</h2>
+		<h2 class="text-center my-3 head_filter"></h2>
 		<div id="myItems" class="row">
 
 
@@ -66,6 +66,8 @@
         var id = $(this).data('id');
         var name= $(this).data('name');
         showItems(id);
+
+        $('.head_filter').text('Filter By '+name);
       })
 
     })
